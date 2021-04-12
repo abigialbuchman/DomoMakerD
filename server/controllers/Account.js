@@ -1,13 +1,13 @@
 const models = require('../models');
 
-const Account = models.Account;
+const { Account } = models;
 
 const loginPage = (req, res) => {
-  res.render('login');
+  res.render('login', { csrfToken: req.csrfToken() });
 };
 
 const signupPage = (req, res) => {
-  res.render('signup');
+  res.render('signup', { csrfToken: req.csrfToken() });
 };
 
 const logout = (req, res) => {
@@ -34,7 +34,7 @@ const login = (request, response) => {
 
     req.session.account = Account.AccountModel.toAPI(account);
 
-    return res.json({ redirect: '.maker' });
+    return res.json({ redirect: '/maker' });
   });
 };
 
