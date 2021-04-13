@@ -117,4 +117,5 @@ $(document).ready(function(){
     getToken();
 });
 
+//ended at step 30 (mongo gross)
 
